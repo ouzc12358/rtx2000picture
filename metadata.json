@@ -1,0 +1,5 @@
+{
+  "name": "Technical Drawing Extractor",
+  "description": "An application to extract and display technical drawings from product datasheet pages. It crops specified diagrams from source images and provides them for viewing and download.",
+  "requestFramePermissions": []
+}
