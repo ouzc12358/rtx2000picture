@@ -20,15 +20,16 @@ const CroppedImageViewer: React.FC<CroppedImageViewerProps> = ({ sourceImage, im
 
   useEffect(() => {
     // If sourceImage is falsy (e.g., null or empty string), it indicates missing data.
-    if (!sourceImage) {
+    if (!sourceImage || sourceImage.includes('AAAAAQAB')) { // Check for placeholder
       setIsLoading(false);
       setCroppedImageDataUrl(null);
+      console.error("Image failed to load. Source data is missing or a placeholder.");
       return;
     }
 
     setIsLoading(true);
     const img = new Image();
-    img.crossOrigin = "Anonymous"; // In case the image is hosted elsewhere
+    // No crossOrigin attribute is needed for Base64 data URLs
     img.src = sourceImage;
 
     img.onload = () => {
@@ -56,7 +57,7 @@ const CroppedImageViewer: React.FC<CroppedImageViewerProps> = ({ sourceImage, im
     };
     
     img.onerror = () => {
-        console.error("Image failed to load. Check the image URL or data.");
+        console.error("Image failed to load. Check the source data.");
         setIsLoading(false);
         setCroppedImageDataUrl(null); // Ensure we show the error state
     }
@@ -103,7 +104,7 @@ const CroppedImageViewer: React.FC<CroppedImageViewerProps> = ({ sourceImage, im
             <div className="text-center text-slate-500 p-4">
               <p className="text-2xl mb-2" aria-hidden="true">⚠️</p>
               <p className="font-semibold">Image Unavailable</p>
-              <p className="text-xs mt-1">The source image could not be loaded. Please check the URL.</p>
+              <p className="text-xs mt-1">The source image data could not be loaded or is missing.</p>
             </div>
         )}
       </div>
