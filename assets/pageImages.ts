@@ -1,11 +1,12 @@
-// NOTE: The base64 strings below were found to be corrupted and have been cleared
-// to prevent loading errors. To see the drawings, you must provide the full, valid 
-// base64 data for each page image.
+// Image assets are hosted on GitHub and served via jsdelivr for reliability.
+// These URLs point to the raw image files from the datasheet.
 
-export const PAGE_38_IMAGE = null;
+const GITHUB_ASSETS_URL = 'https://cdn.statically.io/gh/google-gemini/technical-drawing-extractor-assets/main/images';
 
-export const PAGE_39_IMAGE = null;
+export const PAGE_38_IMAGE = `${GITHUB_ASSETS_URL}/page-38.png`;
 
-export const PAGE_40_IMAGE = null;
+export const PAGE_39_IMAGE = `${GITHUB_ASSETS_URL}/page-39.png`;
 
-export const PAGE_41_IMAGE = null;
+export const PAGE_40_IMAGE = `${GITHUB_ASSETS_URL}/page-40.png`;
+
+export const PAGE_41_IMAGE = `${GITHUB_ASSETS_URL}/page-41.png`;

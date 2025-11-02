@@ -56,7 +56,7 @@ const CroppedImageViewer: React.FC<CroppedImageViewerProps> = ({ sourceImage, im
     };
     
     img.onerror = () => {
-        console.error("Image failed to load. The Base64 data is likely corrupt or invalid.");
+        console.error("Image failed to load. Check the image URL or data.");
         setIsLoading(false);
         setCroppedImageDataUrl(null); // Ensure we show the error state
     }
@@ -102,8 +102,8 @@ const CroppedImageViewer: React.FC<CroppedImageViewerProps> = ({ sourceImage, im
         {!isLoading && !croppedImageDataUrl && (
             <div className="text-center text-slate-500 p-4">
               <p className="text-2xl mb-2" aria-hidden="true">⚠️</p>
-              <p className="font-semibold">Image Data Missing</p>
-              <p className="text-xs mt-1">Source data in <code>assets/pageImages.ts</code> may be missing or corrupt.</p>
+              <p className="font-semibold">Image Unavailable</p>
+              <p className="text-xs mt-1">The source image could not be loaded. Please check the URL.</p>
             </div>
         )}
       </div>
